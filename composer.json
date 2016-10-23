@@ -1,0 +1,30 @@
+{
+  "name": "sdd/utils-bundle",
+  "version": "0.0.1",
+  "description": "SDD Productions Utilities",
+  "keywords": [
+    "sdd",
+    "utils",
+    "symfony2",
+    "bundle"
+  ],
+  "type": "symfony-bundle",
+  "license": "CC",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Samuel Denis-D'Ortun",
+      "email": "sam@sddproductions.com",
+      "homepage": "http://sddproductions.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "SDD\\UtilsBundle": ""
+    }
+  },
+  "target-dir": "SDDProductions/Bundles/UtilsBundle"
+}
