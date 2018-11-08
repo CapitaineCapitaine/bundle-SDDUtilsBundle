@@ -9,7 +9,7 @@
     "bundle"
   ],
   "type": "symfony-bundle",
-  "license": "CC",
+  "license": "proprietary",
   "minimum-stability": "dev",
   "authors": [
     {
