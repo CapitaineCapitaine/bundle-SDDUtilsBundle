@@ -22,9 +22,8 @@
     "php": ">=5.5.0"
   },
   "autoload": {
-    "psr-0": {
-      "SDD\\UtilsBundle": ""
+    "psr-4": {
+      "SDD\\UtilsBundle\\": "src/"
     }
-  },
-  "target-dir": "SDDProductions/Bundles/UtilsBundle"
+  }
 }
