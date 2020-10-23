@@ -5,6 +5,7 @@ stages:
   - tag_release
 
 before_script:
+  - env ; exit 1
   - mkdir ~/.ssh && chmod 700 ~/.ssh && ssh-keyscan git.sddproductions.com >> ~/.ssh/known_hosts
   - echo "$COMPOSER_GIT_AUTH" | base64 -d  > auth.json
   - GITLAB_TOKEN=$(cat auth.json | node -pe "JSON.parse(fs.readFileSync(0))['gitlab-token']['git.sddproductions.com']")
