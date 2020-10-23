@@ -1,6 +1,5 @@
 {
-  "name": "sdd/utils-bundle",
-  "version": "0.0.1",
+  "name": "sddproductions/utils-bundle",
   "description": "SDD Productions Utilities",
   "keywords": [
     "sdd",
@@ -10,7 +9,6 @@
   ],
   "type": "symfony-bundle",
   "license": "proprietary",
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Samuel Denis-D'Ortun",
@@ -28,7 +26,8 @@
 
   "autoload": {
     "psr-4": {
-      "SDD\\UtilsBundle\\": "src/"
+      "SDD\\UtilsBundle\\": "src/",
+      "SDD\\UtilsBundle\\Tests\\": "tests/"
     }
   }
 }

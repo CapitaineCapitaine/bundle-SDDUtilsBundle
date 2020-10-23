@@ -1,18 +1,46 @@
 <?php
 
-namespace NewEra\NameClassificationBundle\Tests\Provider;
+namespace SDD\UtilsBundle\Tests;
 
-use NewEra\NameClassificationBundle\Entity\Person;
-use NewEra\NameClassificationBundle\Provider\EmailProvider;
-use NewEra\NameClassificationBundle\Provider\NameProvider;
 use PHPUnit\Framework\TestCase;
 use SDD\UtilsBundle\StringUtils;
 
 class StringUtilsTest extends TestCase
 {
-    public function testComputeEmailFromFirstLastName_extra_chars(): void
+
+    public function testEndsWith()
     {
-        self::assertSame('aabbcc', StringUtils::stripAllSpaces("aa bb cc     \t"));
+
+    }
+
+    public function testProperCase()
+    {
+
+    }
+
+    public function testRemoveAccents()
+    {
+        self::assertSame('Il etait une fOis', StringUtils::removeAccents("Il était ûne fÔis"));
+
+    }
+
+
+    public function testStartsWith()
+    {
+
+    }
+
+    public function testStripDoubleSpaces()
+    {
+
+    }
+
+
+    public function teststripAllSpaces(): void
+    {
+        self::assertSame('aabbcc', StringUtils::stripAllSpaces("aa bb cc     "));
+        self::assertSame('aabbcc', StringUtils::stripAllSpaces("aa bb\tcc     \t"));
+        self::assertSame('aabbcc', StringUtils::stripAllSpaces("aabbcc"));
     }
 
 }
