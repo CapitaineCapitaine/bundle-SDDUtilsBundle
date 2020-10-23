@@ -377,25 +377,7 @@ class StringUtils
      */
     public static function properCase(string $str): string
     {
-        $temp  = "";
-        $upper = true;
-        for ($i = 0 ; $i < strlen($str) ; $i++)
-        {
-            if (preg_match("/[a-z]/i", $str[$i]))
-            {
-                if ($upper)
-                {
-                    $upper   = false;
-                    $str[$i] = strtoupper($str[$i]);
-                }
-            }
-            else
-            {
-                $upper = true;
-            }
-        }
-
-        return $temp;
+        return ucwords($str , '-_.@ ');
     }
     
 }
