@@ -2,7 +2,7 @@ image: gcr.io/bap-newera/nginx-php7:7.4
 
 stages:
   - test
-  - tag_release
+  - release
 
 before_script:
   - mkdir ~/.ssh && chmod 700 ~/.ssh && ssh-keyscan git.sddproductions.com >> ~/.ssh/known_hosts
@@ -20,7 +20,7 @@ Unit Tests:
     - php  -d zend_extension=xdebug.so  vendor/bin/phpunit  --coverage-text --colors=never
 
 Tag Patch Version:
-  stage: tag_release
+  stage: release
   only:
     - master
   except:
