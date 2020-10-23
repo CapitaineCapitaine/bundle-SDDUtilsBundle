@@ -27,7 +27,7 @@ Tag Patch Version:
     - tags
     
   script:
-    - git clone --depth=1 https://oauth:$GITLAB_TOKEN@git.sddproductions.com$CI_PROJECT_DIR
+    - git clone --depth=1 https://oauth:$GITLAB_TOKEN@git.sddproductions.com/$CI_PROJECT_PATH
     - bash ci-templates/scripts/version-up.sh --apply --patch --release
     - git push --tags git@git.sddproductions.com:$CI_PROJECT_PATH
     
