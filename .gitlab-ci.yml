@@ -11,10 +11,7 @@ services:
   - docker:dind
 
 before_script:
-  - composer config --global --auth http-basic.newera.repo.repman.newera.systems token $COMPOSER_GIT_AUTH
-  - mkdir ~/.ssh && chmod 700 ~/.ssh && ssh-keyscan git.sddproductions.com >> ~/.ssh/known_hosts
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY" | base64 -d)     # add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
+  - echo "$COMPOSER_GIT_AUTH" | base64 -d  > .composer-auth.json
 
 
 ########################################################################################################################
