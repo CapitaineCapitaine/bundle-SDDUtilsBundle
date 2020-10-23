@@ -364,12 +364,12 @@ class StringUtils
 
     public static function stripAllSpaces(string $str) : string
     {
-        return preg_replace('/\s+/',' ',$str);
+        return preg_replace('/\s+/','',trim($str));
     }
 
     public static function stripDoubleSpaces(string $str) : string
     {
-        return preg_replace('/\s\s+/',' ',$str);
+        return preg_replace('/\s\s+/',' ',trim($str));
     }
 
     /**
@@ -379,5 +379,4 @@ class StringUtils
     {
         return ucwords($str , '-_.@ ');
     }
-    
 }

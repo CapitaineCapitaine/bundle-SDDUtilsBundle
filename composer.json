@@ -10,7 +10,7 @@
   ],
   "type": "symfony-bundle",
   "license": "proprietary",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "Samuel Denis-D'Ortun",
@@ -28,7 +28,8 @@
 
   "autoload": {
     "psr-4": {
-      "SDD\\UtilsBundle\\": "src/"
+      "SDD\\UtilsBundle\\": "src/",
+      "SDD\\UtilsBundle\\Tests\\": "tests/"
     }
   }
 }

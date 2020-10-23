@@ -26,8 +26,7 @@ Unit Tests:
   script:
     - composer install --optimize-autoloader --ignore-platform-reqs --no-progress --no-suggest
     - php  -d zend_extension=xdebug.so  vendor/bin/phpunit  --coverage-text --colors=never
-    
-    
+
 Tag Patch Version:
   stage: tag_release
   only:
@@ -38,5 +37,5 @@ Tag Patch Version:
   script:
     - git clone --depth=1 git@git.sddproductions.com:newera.systems/ci-templates.git
     - bash ci-templates/scripts/version-up.sh --apply --patch --release
-    - git push --tags git@git.sddproductions.com:newera.systems/name-classification.git 
+    - git push --tags git@git.sddproductions.com:$CI_PROJECT_PATH
     

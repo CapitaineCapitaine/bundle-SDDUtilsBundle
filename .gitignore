@@ -1,1 +1,4 @@
 /Resources/config/*.bak
+/vendor
+/.idea/workspace.xml
+/composer.lock
