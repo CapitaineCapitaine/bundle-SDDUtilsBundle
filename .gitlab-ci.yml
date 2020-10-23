@@ -7,7 +7,6 @@ stages:
 before_script:
   - mkdir ~/.ssh && chmod 700 ~/.ssh && ssh-keyscan git.sddproductions.com >> ~/.ssh/known_hosts
   - echo "$COMPOSER_GIT_AUTH" | base64 -d  > auth.json
-  - GITLAB_TOKEN=$(cat auth.json | node -pe "JSON.parse(fs.readFileSync(0))['gitlab-token']['git.sddproductions.com']")
 
 ########################################################################################################################
 ###   Tests                                                                                                          ###
@@ -27,8 +26,10 @@ Tag Patch Version:
     - tags
     
   script:
-    - git clone --depth=1 https://oauth:$GITLAB_TOKEN@git.sddproductions.com/newera.systems/ci-templates.git
-    - bash ci-templates/scripts/version-up.sh --apply --patch --release
+  - GITLAB_TOKEN=$(cat auth.json | node -pe "JSON.parse(fs.readFileSync(0))['gitlab-token']['git.sddproductions.com']")
+
+  - git clone --depth=1 https://oauth:$GITLAB_TOKEN@git.sddproductions.com/newera.systems/ci-templates.git
+  - bash ci-templates/scripts/version-up.sh --apply --patch --release
     
-    - git push --tags https://oauth:$GITLAB_TOKEN@git.sddproductions.com/${CI_PROJECT_PATH}
+  - git push --tags https://oauth:$GITLAB_TOKEN@git.sddproductions.com/${CI_PROJECT_PATH}
     
