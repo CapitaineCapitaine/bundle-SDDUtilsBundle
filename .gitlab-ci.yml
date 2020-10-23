@@ -1,0 +1,42 @@
+image: gcr.io/bap-newera/nginx-php7:7.4
+
+stages:
+  - test
+  - tag_release
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+services:
+  - docker:dind
+
+before_script:
+  - composer config --global --auth http-basic.newera.repo.repman.newera.systems token $COMPOSER_GIT_AUTH
+  - mkdir ~/.ssh && chmod 700 ~/.ssh && ssh-keyscan git.sddproductions.com >> ~/.ssh/known_hosts
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY" | base64 -d)     # add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
+
+
+########################################################################################################################
+###   Tests                                                                                                          ###
+########################################################################################################################
+
+Unit Tests:
+  stage: test
+  script:
+    - composer install --optimize-autoloader --ignore-platform-reqs --no-progress --no-suggest
+    - php  -d zend_extension=xdebug.so  vendor/bin/phpunit  --coverage-text --colors=never
+    
+    
+Tag Patch Version:
+  stage: tag_release
+  only:
+    - master
+  except:
+    - tags
+    
+  script:
+    - git clone --depth=1 git@git.sddproductions.com:newera.systems/ci-templates.git
+    - bash ci-templates/scripts/version-up.sh --apply --patch --release
+    - git push --tags git@git.sddproductions.com:newera.systems/name-classification.git 
+    
