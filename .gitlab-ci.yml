@@ -29,5 +29,6 @@ Tag Patch Version:
   script:
     - git clone --depth=1 https://oauth:$GITLAB_TOKEN@git.sddproductions.com/newera.systems/ci-templates.git
     - bash ci-templates/scripts/version-up.sh --apply --patch --release
-    - git push --tags https://oauth:$GITLAB_TOKEN@git.sddproductions.com/bundles/SDDUtilsBundle.git  # USE $CI_PROJECT_PATH after Gitlab Upgrade
+    
+    - git push --tags https://oauth:$GITLAB_TOKEN@git.sddproductions.com/$(CI_PROJECT_PATH)
     
