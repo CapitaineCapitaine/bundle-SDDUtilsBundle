@@ -5,8 +5,7 @@ stages:
   - tag_release
 
 before_script:
-  - echo "$COMPOSER_GIT_AUTH" | base64 -d  > .composer-auth.json
-
+  - echo "$COMPOSER_GIT_AUTH" | base64 -d  > auth.json
 
 ########################################################################################################################
 ###   Tests                                                                                                          ###
