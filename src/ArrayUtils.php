@@ -47,9 +47,8 @@ class ArrayUtils
     }
 
 
-
     public static function hasOnlyUniqueValues(array $array)
     {
-        return count(array_unique($array)) < count($array);
+        return count(array_unique($array)) === count($array);
     }
 }

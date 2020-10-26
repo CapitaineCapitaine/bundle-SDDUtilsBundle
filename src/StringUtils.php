@@ -367,7 +367,7 @@ class StringUtils
         return preg_replace('/\s+/','',trim($str));
     }
 
-    public static function stripDoubleSpaces(string $str) : string
+    public static function trimAll(string $str) : string
     {
         return preg_replace('/\s\s+/',' ',trim($str));
     }

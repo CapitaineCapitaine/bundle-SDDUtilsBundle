@@ -30,10 +30,7 @@ class StringUtilsTest extends TestCase
 
     }
 
-    public function testStripDoubleSpaces()
-    {
 
-    }
 
 
     public function teststripAllSpaces(): void
